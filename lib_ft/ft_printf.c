@@ -6,14 +6,11 @@
 /*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 17:30:23 by asharafe          #+#    #+#             */
-/*   Updated: 2025/07/26 20:42:11 by asharafe         ###   ########.fr       */
+/*   Updated: 2025/07/27 19:24:24 by asharafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdint.h>
-#include <stdlib.h>
+#include "libft.h"
 
 // #include <stdio.h>
 // #include <stddef.h>
@@ -182,6 +179,7 @@ int	ft_putnbr_hex(uintptr_t nbr, char *base)
 int	ft_print_str(va_list args)
 {
 	char	*str;
+	int		len;
 
 	str = va_arg(args, char *);
 	if (!str)
@@ -190,7 +188,8 @@ int	ft_print_str(va_list args)
 		return (6);
 	}
 	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	len = (int)ft_strlen(str);
+	return (len);
 }
 
 int	ft_print_char(va_list args, char c)
@@ -211,7 +210,7 @@ int	ft_print_int_dec(va_list args)
 	if (!str)
 		return (-1);
 	ft_putstr_fd(str, 1);
-	printed_chars = ft_strlen(str);
+	printed_chars = (int)ft_strlen(str);
 	free (str);
 	return (printed_chars);
 }

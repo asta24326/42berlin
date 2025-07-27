@@ -6,14 +6,17 @@
 /*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 11:55:17 by asharafe          #+#    #+#             */
-/*   Updated: 2025/07/25 18:58:19 by asharafe         ###   ########.fr       */
+/*   Updated: 2025/07/27 19:22:27 by asharafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stdlib.h>
+
 # include <unistd.h>
+# include <stdarg.h>
+# include <stdint.h>
+# include <stdlib.h>
 
 typedef struct s_list
 {
@@ -57,6 +60,16 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+/* FT_PRINTF */
+int	ft_printf(const char *s, ...);
+int	ft_print_arg(va_list args, char c);
+int	ft_hex_sort(va_list args, char c);
+int	ft_ptr_print(void *ptr, char *base);
+int	ft_putnbr_hex(uintptr_t nbr, char *base);
+int	ft_print_str(va_list args);
+int	ft_print_char(va_list args, char c);
+int	ft_print_int_dec(va_list args);
+int	ft_putnbr_u(unsigned int nbr);
 /* BONUS */
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
