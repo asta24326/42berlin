@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 11:11:26 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2025/06/19 11:52:10 by asharafe         ###   ########.fr       */
+/*   Created: 2025/04/13 16:05:59 by asharafe          #+#    #+#             */
+/*   Updated: 2025/04/13 19:46:46 by asharafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 /*
+#include <unistd.h>
 #include <stdio.h>
+int	ft_fibonacci(int index);
 
-size_t	ft_strlen(const char *s);
-
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (argc < 2 || argc > 2)
-	{
-		printf("No or more than 1 argument!\n");
-		return (0);
-	}
-	printf("Length is: %i\n", (ft_strlen(argv[1])));
+	int	n;
+
+	n = 3;
+	printf("Fibonacci(%d) = %d\n", n, (ft_fibonacci(n)));
 	return (0);
 }
 */
-
-size_t	ft_strlen(const char *s)
+int	ft_fibonacci(int index)
 {
-	int	i;
-
-	i = 0;
-	while (*s++)
-		i++;
-	return (i);
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		return (0);
+	if (index == 1)
+		return (1);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
