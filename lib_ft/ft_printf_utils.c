@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 17:30:23 by asharafe          #+#    #+#             */
-/*   Updated: 2025/07/29 23:56:27 by asharafe         ###   ########.fr       */
+/*   Updated: 2025/07/29 23:56:09 by asharafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,91 +86,54 @@
 // 	return (0);
 // 	}
 
-int	ft_printf(const char *s, ...)
+int	ft_print_str(va_list args)
 {
-	va_list	args;
-	int		i;
-	int		total_printed;
-	int		spec_printed;
+	char	*str;
+	int		len;
 
-	va_start(args, s);
-	i = 0;
-	total_printed = 0;
-	while (s[i])
+	str = va_arg(args, char *);
+	if (!str)
 	{
-		if (s[i] == '%' && s[i + 1] && s[i + 1] != '\n')
-		{
-			spec_printed = ft_print_arg(args, s[i + 1]);
-			if (spec_printed == -1)
-				return (-1);
-			total_printed += spec_printed;
-			i += 2;
-			continue ;
-		}
-		write(1, &s[i], 1);
-		i++;
-		total_printed++;
+		ft_putstr_fd("(null)", 1);
+		return (6);
 	}
-	va_end(args);
-	return (total_printed);
+	ft_putstr_fd(str, 1);
+	len = (int)ft_strlen(str);
+	return (len);
 }
 
-int	ft_print_arg(va_list args, char c)
+int	ft_print_char(va_list args, char c)
 {
-	int	printed_chars;
-
-	printed_chars = 0;
-	if (c == 'c' || c == '%')
-		return (ft_print_char(args, c));
-	if (c == 's')
-		return (ft_print_str(args));
-	if (c == 'd' || c == 'i')
-		return (ft_print_int_dec(args));
-	if (c == 'p' || c == 'x' || c == 'X')
-		return (ft_hex_sort(args, c));
-	if (c == 'u')
-		return (ft_putnbr_u(va_arg(args, unsigned int)));
-	return (printed_chars);
+	if (c == 'c')
+		ft_putchar_fd(va_arg(args, int), 1);
+	if (c == '%')
+		ft_putchar_fd('%', 1);
+	return (1);
 }
 
-int	ft_hex_sort(va_list args, char c)
+int	ft_print_int_dec(va_list args)
 {
+	char	*str;
 	int		printed_chars;
-	char	*base_up;
-	char	*base_low;
 
-	printed_chars = 0;
-	base_up = "0123456789ABCDEF";
-	base_low = "0123456789abcdef";
-	if (c == 'p')
-		return (ft_ptr_print(va_arg(args, void *), base_low));
-	if (c == 'x')
-		return (ft_putnbr_hex(va_arg(args, unsigned int), base_low));
-	if (c == 'X')
-		return (ft_putnbr_hex(va_arg(args, unsigned int), base_up));
+	str = ft_itoa(va_arg(args, int));
+	if (!str)
+		return (-1);
+	ft_putstr_fd(str, 1);
+	printed_chars = (int)ft_strlen(str);
+	free (str);
 	return (printed_chars);
 }
 
-int	ft_ptr_print(void *ptr, char *base)
-{
-	if (ptr == NULL)
-	{
-		ft_putstr_fd("(nil)", 1);
-		return (5);
-	}
-	ft_putstr_fd("0x", 1);
-	return (ft_putnbr_hex((uintptr_t)ptr, base) + 2);
-}
-
-int	ft_putnbr_hex(uintptr_t nbr, char *base)
+int	ft_putnbr_u(unsigned int nbr)
 {
 	char	digit;
 	int		printed_chars;
 
 	printed_chars = 0;
-	if (nbr >= 16)
-		printed_chars += ft_putnbr_hex((nbr / 16), base);
-	digit = base[(nbr % 16)];
+	if (nbr >= 10)
+		printed_chars += ft_putnbr_u(nbr / 10);
+	digit = (nbr % 10) + '0';
 	ft_putchar_fd(digit, 1);
 	printed_chars++;
 	return (printed_chars);
