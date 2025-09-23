@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 18:49:55 by asharafe          #+#    #+#             */
-/*   Updated: 2025/09/22 21:44:17 by asharafe         ###   ########.fr       */
+/*   Updated: 2025/09/23 14:18:49 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	process_input(t_node **a, int argc, char **argv)
 	else if (argc == 2)
 	{
 		new_arr = custom_split(argv[1], ' ');
-		if (!new_arr) 
+		if (!new_arr)
 			return (ft_printf("Error\n"), 1);
 		create_stack_a(a, new_arr, 1);
 	}
