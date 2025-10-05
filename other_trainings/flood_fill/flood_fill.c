@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:42:22 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2025/10/05 16:42:28 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2025/10/05 16:52:28 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,11 @@ void	fill_tab(char **tab, t_point size, t_point current, char target)
 	if (current.column < 0 || current.column >= size.column || 
 		current.row < 0 || current.row >= size.row)
 		return ;
-	if (tab[current.row][current.column] != target)
+	if (tab[current.row][current.column] != target)// if it's a wall (1) or already painted (F)
 		return ;
 	tab[current.row][current.column] = 'F';
-	fill_tab(tab, size, (t_point){current.column, current.row - 1}, target);
-	fill_tab(tab, size, (t_point){current.column, current.row + 1}, target);
-	fill_tab(tab, size, (t_point){current.column - 1, current.row}, target);
-	fill_tab(tab, size, (t_point){current.column + 1, current.row}, target);
+	fill_tab(tab, size, (t_point){current.column, current.row - 1}, target);// we check up
+	fill_tab(tab, size, (t_point){current.column, current.row + 1}, target);// we check down
+	fill_tab(tab, size, (t_point){current.column - 1, current.row}, target);//we check left
+	fill_tab(tab, size, (t_point){current.column + 1, current.row}, target);//we check right
 }
