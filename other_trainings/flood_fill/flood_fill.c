@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:42:22 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2025/10/05 17:10:59 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2025/10/05 20:33:09 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,4 @@ void	fill_tab(char **tab, t_point size, t_point current, char target)
 	fill_tab(tab, size, (t_point){current.column, current.row + 1}, target);// we check down
 	fill_tab(tab, size, (t_point){current.column - 1, current.row}, target);//we check left
 	fill_tab(tab, size, (t_point){current.column + 1, current.row}, target);//we check right
-}
+
