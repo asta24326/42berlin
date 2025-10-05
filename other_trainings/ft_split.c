@@ -1,12 +1,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
 
-int	is_delim(char c);
+int		is_delim(char c);
 void	ft_putstr(char *s);
-size_t	ft_strlcpy(char *dst, char *src, size_t len);
-size_t	count_words(char *str);
-void	clean(char **result, size_t word_index);
+int		ft_strlcpy(char *dst, char *src, int len);
+int		count_words(char *str);
+void	clean(char **result, int word_index);
 char	**arr_fill(char **result, char *str);
 char	**ft_split(char *str);
 
@@ -24,6 +25,10 @@ int	main(int argc, char **argv)
 			ft_putstr(result[i]);
 			i++;
 		}
+		i = 0;
+		while (result[i])
+			free(result[i++]);
+		free(result);
 	}
 	return (0);
 }
@@ -47,9 +52,9 @@ int	is_delim(char c)
 	return (0);
 }
 
-size_t	count_words(char *str)
+int	count_words(char *str)
 {
-	int	count;
+	int		count;
 	bool	inside_word;
 
 	count = 0;
@@ -73,10 +78,10 @@ size_t	count_words(char *str)
 
 char	**arr_fill(char **result, char *str)
 {
-	size_t	i;
-	size_t	start;
-	size_t	word_len;
-	size_t	word_index;
+	int	i;
+	int	start;
+	int	word_len;
+	int	word_index;
 
 	i = 0;
 	word_index = 0;
@@ -87,36 +92,42 @@ char	**arr_fill(char **result, char *str)
 		if (!str[i])
 			break ;
 		start = i;
-		while (str[i] && !is_delim(str[i]))
+		while (str[i] && !(is_delim(str[i])))
 			i++;
 		word_len = i - start;
 		result[word_index] = (char *)malloc(sizeof(char) * (word_len + 1));
 		if (!result[word_index])
-			return (clean(result, word_index--), NULL);
+			return (clean(result, word_index), NULL);
 		ft_strlcpy(result[word_index], &str[start], word_len + 1);
 		word_index++;
-		i++;
 	}
 	result[word_index] = NULL;
 	return (result);
 }
 
-void	clean(char **result, size_t word_index)
+void	clean(char **result, int word_index)
 {
-	while (word_index >= 0)
-		free(result[word_index--]);
+	while (word_index > 0)
+	{
+		word_index--;
+		free(result[word_index]);
+	}
 	free(result);
 }
 
-size_t	ft_strlcpy(char *dst, char *src, size_t len)
+int	ft_strlcpy(char *dst, char *src, int len)
 {
-	size_t	i;
-	size_t	src_len;
+	int	i;
+	int	src_len;
 
 	src_len = 0;
-	i = 0;	
-	while(*src)
+	i = 0;
+	while(src[i])
+	{
 		src_len++;
+		i++;
+	}
+	i = 0;
 	if (len > 0)
 	{
 		while (src[i] && (i < (len - 1)))
@@ -134,6 +145,7 @@ void	ft_putstr(char *s)
 	if (!*s)
 		return ;
 	while (*s)
-		write(1, &(*s), 1);
+		write(1, s++, 1);
+	write(1, "\n", 1);
 }
 
