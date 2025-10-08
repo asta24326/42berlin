@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (argc == 2)
 	{
+		if (!argv[1][0])
+			return (perror("Empty string"), 1);
 		result = ft_split(argv[1]);
 		while (result[i])
 		{
