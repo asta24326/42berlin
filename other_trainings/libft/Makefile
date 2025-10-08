@@ -35,7 +35,7 @@ clean:
 	@$(RM) $(OBJ) $(BONUS_OBJS)
 
 fclean: clean
-	@$(RM) $(NAME)make c
+	@$(RM) $(NAME)
 
 re: fclean all
 
