@@ -20,7 +20,7 @@ unsigned int	lcm(unsigned int a, unsigned int b)
 	if (a > b)
 		lcm = a;
 	else
-		lcm = b;		
+		lcm = b;
 	while (1)
 	{
 		if ((lcm % a == 0) && (lcm % b == 0))
