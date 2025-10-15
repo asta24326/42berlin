@@ -63,7 +63,7 @@ int	count_words(char *str)
 	while (*str)
 	{
 		inside_word = false;
-		while (is_delim(*str))
+		while (*str && is_delim(*str))
 			str++;
 		while (*str && !is_delim(*str))
 		{
@@ -89,7 +89,7 @@ char	**arr_fill(char **result, char *str)
 	word_index = 0;
 	while (str[i])
 	{
-		while (is_delim(str[i]))
+		while (str[i] && is_delim(str[i]))
 			i++;
 		if (!str[i])
 			break ;

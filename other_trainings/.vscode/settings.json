@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"stdbool.h": "c",
-		"unistd.h": "c"
+		"unistd.h": "c",
+		"ft_list_remove.h": "c",
+		"stdio.h": "c"
 	}
 }
