@@ -32,87 +32,35 @@ $ ./rev_wstr | cat -e
 #include <stdlib.h>
 #include <stdbool.h>
 
-void	ft_putstr(char *s);
-int		ft_count_words(char *s);
-int		is_space(char s);
-void	ft_putstr(char *s);
-
-
 int	main(int argc, char **argv)
 {
-	char	**res;
-	int		i;
-	int		count_words;
+	int	i;
+	int	j;
+	int	first_word;
 
 	i = 0;
-	// if (argc == 2)
-	// 	res = rev_str(argv[1]);
-	
-	count_words = ft_count_words(argv[1]);
-	printf("%d\n", count_words);
-	ft_putstr("\n");
-	free(res);
-	return (0);
-}
-
-void	ft_putstr(char *s)
-{
-	while (*s)
-		write(1, s++, 1);
-}
-
-char	**rev_str(char *s)
-{
-	int			i;
-	char	**res;
-	int		words;
-	int		word_index;
-	int		word_len;
-	int		start;
-
-	words = ft_count_words(s);
-	res = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!res)
-		return (ft_putstr("malloc error"), NULL);
-	res[words] = NULL;
-	word_index = 0;
-	i = 0;
-	while (*s)
+	first_word = 0;
+	if (argc == 2)
 	{
-		while (*s && is_space(*s))
-			s++;
-		if (*s && !is_space(*s))
-
-	}
-}
-
-
-
-int	ft_count_words(char *s)
-{
-	int	count_words;
-	int	inside_word;
-
-	count_words = 0;
-	inside_word = 0;
-	while (*s)
-	{
-		if (is_space(*s))
-			inside_word = 0;
-		else if (!inside_word)
+		while (argv[1][i] != '\0')
+			i++;
+		i--;
+		while (i >= 0)
 		{
-			inside_word = 1;
-			count_words++;
+			while (argv[1][i] != '\0' && (argv[1][i] == ' ' || argv[1][i] == '\0'))
+				i--;
+			j = i;
+			while (argv[1][j] && argv[1][j] != ' ' && argv[1][j] != '\0')
+				j--;
+			if (first_word)
+				write (1, " ", 1);
+			write (1, &argv[1][j + 1], i - j);
+			first_word = 1;
+			i = j;
 		}
-		s++;
 	}
-	return (count_words);
-}
-
-
-int	is_space(char s)
-{
-	if (s <= 13 || s == ' ')
-		return (1);
+	write (1, "\n", 1);
 	return (0);
 }
+
+
