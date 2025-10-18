@@ -6,68 +6,60 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 18:54:30 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2025/10/18 19:16:37 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2025/10/19 01:20:52 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 // #include <unistd.h>
-// #include <stdlib.h>
-// #include <stdbool.h>
-// #include <stdio.h>
+// // #include <stdlib.h>
+// // #include <stdbool.h>
+// // #include <stdio.h>
 
-int		is_delim(char c);
 // void	ft_putstr(char *s);
-// int		ft_strlcpy(char *dst, char *src, int len);
-int		count_words(const char *str);
+// int		ft_strlcpy(char *dst, const char *src, int len);
+int		count_words(const char *str, char delim);
 void	clean(char **result, int word_index);
-char	**arr_fill(char **result, const char *str);
-char	**ft_split(const char *str);
-//
-// int	main(int argc, char **argv)
-// {
-// 	char	**result;
-// 	int		i;
+char	**arr_fill(char **result, const char *str, char delim);
+char	**ft_split(const char *str, char delim);
 
-// 	i = 0;
-// 	if (argc == 2)
-// 	{
-// 		if (!argv[1][0])
-// 			return (perror("Empty string"), 1);
-// 		result = ft_split(argv[1]);
-// 		while (result[i])
-// 		{
-// 			ft_putstr(result[i]);
-// 			i++;
-// 		}
-// 		i = 0;
-// 		while (result[i])
-// 			free(result[i++]);
-// 		free(result);
-// 	}
-// 	return (0);
-// }
+int	main(int argc, char **argv)
+{
+	char	**result;
+	int		i;
 
-char	**ft_split(const char *str)
+	i = 0;
+	if (argc == 3)
+	{
+		if (!argv[1][0])
+			return (ft_putstr_fd("Empty string!\n", 1), 1);
+		result = ft_split(argv[1], argv[2][0]);
+		while (result[i])
+		{
+			ft_putstr_fd(result[i], 1);
+			i++;
+		}
+		i = 0;
+		while (result[i])
+			free(result[i++]);
+		free(result);
+	}
+	return (0);
+}
+
+char	**ft_split(const char *str, char delim)
 {
 	char	**result;
 
 	if (!str)
 		return (NULL);
-	result = (char **)malloc(sizeof(char *) * (count_words(str) + 1));
+	result = (char **)malloc(sizeof(char *) * (count_words(str, delim) + 1));
 	if (!result)
 		return (NULL);
-	return (arr_fill(result, str));
+	return (arr_fill(result, str, delim));
 }
 
-int	is_delim(char c)
-{
-	if (c <= 13 || c == 32)
-		return (1);
-	return (0);
-}
-
-int	count_words(const char *str)
+int	count_words(const char *str, char delim)
 {
 	int		count;
 	bool	inside_word;
@@ -76,9 +68,9 @@ int	count_words(const char *str)
 	while (*str)
 	{
 		inside_word = false;
-		while (*str && is_delim(*str))
+		while (*str && *str == delim)
 			str++;
-		while (*str && !is_delim(*str))
+		while (*str && *str != delim)
 		{
 			if (inside_word == false)
 			{
@@ -91,7 +83,7 @@ int	count_words(const char *str)
 	return (count);
 }
 
-char	**arr_fill(char **result, const char *str)
+char	**arr_fill(char **result, const char *str, char delim)
 {
 	int	i;
 	int	start;
@@ -102,12 +94,12 @@ char	**arr_fill(char **result, const char *str)
 	word_index = 0;
 	while (str[i])
 	{
-		while (str[i] && is_delim(str[i]))
+		while (str[i] && str[i] == delim)
 			i++;
 		if (!str[i])
 			break ;
 		start = i;
-		while (str[i] && !(is_delim(str[i])))
+		while (str[i] && str[i] != delim)
 			i++;
 		word_len = i - start;
 		result[word_index] = (char *)malloc(sizeof(char) * (word_len + 1));
@@ -130,7 +122,7 @@ void	clean(char **result, int word_index)
 	free(result);
 }
 
-// int	ft_strlcpy(char *dst, char *src, int len)
+// int	ft_strlcpy(char *dst, const char *src, int len)
 // {
 // 	int	i;
 // 	int	src_len;
