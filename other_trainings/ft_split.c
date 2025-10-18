@@ -11,29 +11,29 @@ void	clean(char **result, int word_index);
 char	**arr_fill(char **result, char *str);
 char	**ft_split(char *str);
 
-int	main(int argc, char **argv)
-{
-	char	**result;
-	int		i;
+// int	main(int argc, char **argv)
+// {
+// 	char	**result;
+// 	int		i;
 
-	i = 0;
-	if (argc == 2)
-	{
-		if (!argv[1][0])
-			return (perror("Empty string"), 1);
-		result = ft_split(argv[1]);
-		while (result[i])
-		{
-			ft_putstr(result[i]);
-			i++;
-		}
-		i = 0;
-		while (result[i])
-			free(result[i++]);
-		free(result);
-	}
-	return (0);
-}
+// 	i = 0;
+// 	if (argc == 2)
+// 	{
+// 		if (!argv[1][0])
+// 			return (perror("Empty string"), 1);
+// 		result = ft_split(argv[1]);
+// 		while (result[i])
+// 		{
+// 			ft_putstr(result[i]);
+// 			i++;
+// 		}
+// 		i = 0;
+// 		while (result[i])
+// 			free(result[i++]);
+// 		free(result);
+// 	}
+// 	return (0);
+// }
 
 char	**ft_split(char *str)
 {

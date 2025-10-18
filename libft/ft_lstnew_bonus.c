@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 11:49:50 by asharafe          #+#    #+#             */
-/*   Updated: 2025/09/20 21:26:26 by asharafe         ###   ########.fr       */
+/*   Updated: 2025/10/18 14:22:45 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

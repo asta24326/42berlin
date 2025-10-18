@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   custom_split.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 18:45:25 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2025/09/20 23:09:18 by asharafe         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:19:42 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static int	count_words(char *s, char c);
 static char	*extract_word(char *s, char c);

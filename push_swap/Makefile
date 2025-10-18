@@ -2,7 +2,7 @@
 NAME					= push_swap
 
 # Directories
-LIBFT					= ./libft/libft.a
+LIBFT					= ../libft/libft.a
 UTILS_DIR				= utils
 
 # Compiler and Flags
@@ -36,7 +36,7 @@ OBJ						= $(patsubst $(UTILS_DIR)/%.c, $(UTILS_DIR)/%.o, $(UTILS)) push_swap.o
 start:					all
 
 $(LIBFT):
-						@$(MAKE) -s -C ./libft
+						@$(MAKE) -s -C ../libft
 
 all:					$(NAME)
 
@@ -53,7 +53,7 @@ push_swap.o:			push_swap.c
 
 clean:
 					@$(RM) $(OBJ)
-					@$(MAKE) clean -s -C ./libft
+					@$(MAKE) clean -s -C ../libft
 
 fclean:				clean
 					@$(RM) $(NAME)

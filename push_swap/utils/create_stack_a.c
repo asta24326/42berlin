@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack_a.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 11:49:56 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2025/09/21 15:53:02 by asharafe         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:19:38 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
