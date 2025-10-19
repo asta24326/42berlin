@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 18:54:30 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2025/10/19 01:20:52 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2025/10/19 22:47:22 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,30 @@ int		count_words(const char *str, char delim);
 void	clean(char **result, int word_index);
 char	**arr_fill(char **result, const char *str, char delim);
 char	**ft_split(const char *str, char delim);
+//
+// int	main(int argc, char **argv)
+// {
+// 	char	**result;
+// 	int		i;
 
-int	main(int argc, char **argv)
-{
-	char	**result;
-	int		i;
-
-	i = 0;
-	if (argc == 3)
-	{
-		if (!argv[1][0])
-			return (ft_putstr_fd("Empty string!\n", 1), 1);
-		result = ft_split(argv[1], argv[2][0]);
-		while (result[i])
-		{
-			ft_putstr_fd(result[i], 1);
-			i++;
-		}
-		i = 0;
-		while (result[i])
-			free(result[i++]);
-		free(result);
-	}
-	return (0);
-}
+// 	i = 0;
+// 	if (argc == 3)
+// 	{
+// 		if (!argv[1][0])
+// 			return (ft_putstr_fd("Empty string!\n", 1), 1);
+// 		result = ft_split(argv[1], argv[2][0]);
+// 		while (result[i])
+// 		{
+// 			ft_putstr_fd(result[i], 1);
+// 			i++;
+// 		}
+// 		i = 0;
+// 		while (result[i])
+// 			free(result[i++]);
+// 		free(result);
+// 	}
+// 	return (0);
+// }
 
 char	**ft_split(const char *str, char delim)
 {
