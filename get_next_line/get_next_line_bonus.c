@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
+/*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 18:25:47 by asharafe          #+#    #+#             */
-/*   Updated: 2025/09/23 14:23:10 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2025/07/14 21:17:35 by asharafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ char	*ft_merge_read(char **cache, char **buffer, size_t read_bytes)
 
 	(*buffer)[read_bytes] = '\0';
 	if (!*cache)
-		*cache = ft_strdup("");
+		*cache = ft_strdup(""); 
 	temp = ft_strjoin(*cache, *buffer);
 	if (!temp)
 	{

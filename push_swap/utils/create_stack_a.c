@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack_a.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
+/*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 11:49:56 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2025/10/18 19:19:38 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2025/09/20 21:25:43 by asharafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	add_node(t_node **stack, int n, char **arr);
+int	add_node(t_node **stack, int n);
 
 void	create_stack_a(t_node **a, char **arr, int arr_flag)
 {
@@ -29,13 +29,13 @@ void	create_stack_a(t_node **a, char **arr, int arr_flag)
 			full_free(a, arr, arr_flag);
 		if (error_duplicates(*a, (int)lnb))
 			full_free(a, arr, arr_flag);
-		add_node(a, (int)lnb, arr);
+		if (add_node(a, (int)lnb))
+			full_free(a, arr, arr_flag);
 		i++;
 	}
-	free(arr);
 }
 
-int	add_node(t_node **stack, int n, char **arr)
+int	add_node(t_node **stack, int n)
 {
 	t_node	*node;
 	t_node	*last_node;
@@ -59,6 +59,5 @@ int	add_node(t_node **stack, int n, char **arr)
 		last_node->next = node;
 		node->prev = last_node;
 	}
-	free_arr(arr);
 	return (0);
 }

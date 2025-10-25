@@ -2,7 +2,7 @@ NAME = pipex
 
 CC = gcc
 
-CFLAGS =  -Wall -Wextra -Werror -fsanitize=address
+CFLAGS =  -Wall -Wextra -Werror
 
 RM = rm -rf
 
@@ -17,22 +17,19 @@ SRCS_BONUS = 	src_bonus/pipex_bonus.c\
 all : $(NAME)
 
 $(NAME) :
-	@make all -C includes/libft
+	@make -s all -C includes/libft
 	@gcc $(CFLAGS) $(SRCS) -o $(NAME)
 
 clean :
 	@$(RM)
-	@make clean -C includes/libft
+	@make -s clean -C includes/libft
 
 fclean : clean
 	@$(RM) $(NAME)
-	@make fclean -C includes/libft
+	@make -s fclean -C includes/libft
 
 re : fclean all
 
 bonus : clean
-	@make all -C includes/libft
+	@make -s all -C includes/libft
 	@gcc $(CFLAGS) $(SRCS_BONUS) -o $(NAME)
-
-# PHONY targets represents actions not files
-.PHONY : start all clean fclean re

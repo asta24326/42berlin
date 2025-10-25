@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
+/*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 22:54:29 by asharafe          #+#    #+#             */
-/*   Updated: 2025/10/18 19:25:16 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2025/09/20 21:26:05 by asharafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
-# include "../libft/libft.h"
+# include "./libft/libft.h"
 
 typedef struct s_node
 {
@@ -34,7 +34,7 @@ typedef struct s_node
 /* stack creation */
 /* ../utils/create_stack_a.c */
 void	create_stack_a(t_node **a, char **argv, int arr_flag);
-int		add_node(t_node **stack, int n, char **arr);
+int		add_node(t_node **stack, int n);
 
 /* split function */
 /* ../utils/custom_split.c */

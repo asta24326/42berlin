@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 22:26:41 by asharafe          #+#    #+#             */
+/*   Updated: 2025/10/22 19:30:35 by asharafe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pipex.h"
 
 int	main(int argc, char **argv, char **env)
@@ -40,28 +52,41 @@ int	*ft_init_fds(int argc, char **argv)
 		ft_custom_exit("pipex: memory allocation failed\n");
 	fds_arr[2] = ft_open_file(argv[1], 0);
 	if (fds_arr[2] == -1)
-		ft_custom_exit("Error opening file1\n");
+	{
+		free(fds_arr);
+		ft_custom_exit("pipex: error opening infile\n");
+	}
 	fds_arr[3] = ft_open_file(argv[argc - 1], 1);
 	if (fds_arr[3] == -1)
-		ft_custom_exit("Error opening file2\n");
+	{
+		close(fds_arr[2]);
+		free(fds_arr);
+		ft_custom_exit("pipex: error opening outfile\n");
+	}
 	return (fds_arr);
 }
 
-void	ft_exec(char *cmd, char **env)
+void	ft_exec(char *cmd, int *fds, char **env)
 {
 	char	**parsed_cmd;
 	char	*exec_path;
 
 	parsed_cmd = ft_split(cmd, ' ');
 	if (!parsed_cmd)
+	{
+		free(fds);
 		ft_custom_exit("pipex: memory allocation failed\n");
+	}
 	exec_path = ft_getpath(parsed_cmd[0], env);
-	if (execve(exec_path, parsed_cmd, env) == -1)
+	if (!exec_path || execve(exec_path, parsed_cmd, env) == -1)
 	{
 		ft_putstr_fd("pipex: command not found: ", 2);
 		ft_putstr_fd(parsed_cmd[0], 2);
 		ft_putstr_fd("\n", 2);
 		ft_free_arr(parsed_cmd);
+		free(fds);
+		if (exec_path)
+			free(exec_path);
 		exit(127);
 	}
 }
@@ -70,7 +95,6 @@ void	ft_exec(char *cmd, char **env)
 char	*ft_getpath(char *cmd, char **env)
 {
 	char	**allpaths;
-	char	**parsed_cmd;
 	char	*path_prep;
 	char	*exec_str;
 	int		i;
@@ -78,20 +102,17 @@ char	*ft_getpath(char *cmd, char **env)
 	allpaths = ft_split(ft_parse_env("PATH", env), ':');
 	if (!allpaths)
 		return (NULL);
-	parsed_cmd = ft_split(cmd, ' ');
-	if (!parsed_cmd)
-		return (ft_free_arr(allpaths), NULL);
 	i = -1;
 	while (allpaths[++i])
 	{
 		path_prep = ft_strjoin(allpaths[i], "/");
-		exec_str = ft_strjoin(path_prep, parsed_cmd[0]);
+		exec_str = ft_strjoin(path_prep, cmd);
 		free (path_prep);
 		if (access(exec_str, F_OK | X_OK) == 0)
-			return (ft_free_arr(parsed_cmd), ft_free_arr(allpaths), exec_str);
+			return (ft_free_arr(allpaths), exec_str);
 		free (exec_str);
 	}
-	return (ft_free_arr(allpaths), ft_free_arr(parsed_cmd), cmd);
+	return (ft_free_arr(allpaths), NULL);
 }
 
 char	*ft_parse_env(char *name, char **env)

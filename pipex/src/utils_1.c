@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 22:26:18 by asharafe          #+#    #+#             */
+/*   Updated: 2025/10/21 22:41:12 by asharafe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pipex.h"
 
 // mode == 1 means it's first command and we'll write to pipe_fd[1]
@@ -7,7 +19,7 @@ void	ft_exec_cmd_first(char *cmd, int *fds, char **env)
 	dup2(fds[2], STDIN_FILENO);
 	dup2(fds[1], STDOUT_FILENO);
 	ft_close_fds(fds);
-	ft_exec(cmd, env);
+	ft_exec(cmd, fds, env);
 }
 
 void	ft_exec_cmd_last(char *cmd, int *fds, char **env)
@@ -15,7 +27,7 @@ void	ft_exec_cmd_last(char *cmd, int *fds, char **env)
 	dup2(fds[0], STDIN_FILENO);
 	dup2(fds[3], STDOUT_FILENO);
 	ft_close_fds(fds);
-	ft_exec(cmd, env);
+	ft_exec(cmd, fds, env);
 }
 
 void	ft_close_fds(int *fds)

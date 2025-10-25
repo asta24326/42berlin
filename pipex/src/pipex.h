@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
+/*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/24 23:00:43 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2025/10/21 01:25:16 by aidarsharaf      ###   ########.fr       */
+/*   Created: 2025/10/21 02:02:45 by asharafe          #+#    #+#             */
+/*   Updated: 2025/10/21 21:29:32 by asharafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 /*	utils.c file	*/
 int		*ft_init_fds(int argc, char **argv);
-void	ft_exec(char *cmd, char **env);
+void	ft_exec(char *cmd, int *fds, char **env);
 char	*ft_getpath(char *cmd, char **env);
 char	*ft_parse_env(char *name, char **env);
 /*	utils_1.c file	*/
