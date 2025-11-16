@@ -78,7 +78,7 @@ void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 			else
 				prev->next = current->next; // so we link prev and next - means we unlink the node
 			// move to the next one
-			current = current->next;
+			current = temp->next;
 			free (temp);
 		}
 		else

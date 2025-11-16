@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-int		is_delim(char c);
 void	ft_putstr(char *s);
 int		ft_strlcpy(char *dst, char *src, int len);
 int		count_words(char *str);
@@ -11,29 +10,32 @@ void	clean(char **result, int word_index);
 char	**arr_fill(char **result, char *str);
 char	**ft_split(char *str);
 
-// int	main(int argc, char **argv)
-// {
-// 	char	**result;
-// 	int		i;
+int	main(int argc, char **argv)
+{
+	char	**result;
+	int		i;
 
-// 	i = 0;
-// 	if (argc == 2)
-// 	{
-// 		if (!argv[1][0])
-// 			return (perror("Empty string"), 1);
-// 		result = ft_split(argv[1]);
-// 		while (result[i])
-// 		{
-// 			ft_putstr(result[i]);
-// 			i++;
-// 		}
-// 		i = 0;
-// 		while (result[i])
-// 			free(result[i++]);
-// 		free(result);
-// 	}
-// 	return (0);
-// }
+	i = 0;
+	if (argc == 2)
+	{
+		if (!argv[1][0])
+		{
+			ft_putstr("Empty string");
+			return (1);
+		}
+		result = ft_split(argv[1]);
+		while (result[i])
+		{
+			ft_putstr(result[i]);
+			i++;
+		}
+		i = 0;
+		while (result[i])
+			free(result[i++]);
+		free(result);
+	}
+	return (0);
+}
 
 char	**ft_split(char *str)
 {
@@ -44,38 +46,34 @@ char	**ft_split(char *str)
 	result = (char **)malloc(sizeof(char *) * (count_words(str) + 1));
 	if (!result)
 		return (NULL);
-	return (arr_fill(result, str));
-}
-
-int	is_delim(char c)
-{
-	if (c <= 13 || c == 32)
-		return (1);
-	return (0);
+	result = arr_fill(result, str);
+	return (result);
 }
 
 int	count_words(char *str)
 {
-	int		count;
-	bool	inside_word;
+	int		words_count;
+	int		inside_word;
+	int		i;
 
-	count = 0;
-	while (*str)
+	words_count = 0;
+	i = 0;
+	while (str[i])
 	{
-		inside_word = false;
-		while (*str && is_delim(*str))
-			str++;
-		while (*str && !is_delim(*str))
+		inside_word = 0;
+		while (str[i] && str[i] <= ' ')
+			i++;;
+		while (str[i] && str[i] > ' ')
 		{
-			if (inside_word == false)
+			if (inside_word == 0)
 			{
-				count++;
-				inside_word = true;
+				words_count++;
+				inside_word = 1;
 			}
-			str++;
+			i++;
 		}
 	}
-	return (count);
+	return (words_count);
 }
 
 char	**arr_fill(char **result, char *str)
@@ -89,7 +87,7 @@ char	**arr_fill(char **result, char *str)
 	word_index = 0;
 	while (str[i])
 	{
-		while (str[i] && is_delim(str[i]))
+		while (str[i] && str[i] <= ' ')
 			i++;
 		if (!str[i])
 			break ;
@@ -150,4 +148,3 @@ void	ft_putstr(char *s)
 		write(1, s++, 1);
 	write(1, "\n", 1);
 }
-

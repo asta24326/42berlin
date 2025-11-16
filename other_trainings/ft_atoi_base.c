@@ -3,15 +3,20 @@
 
 int	is_valid(int char_to_check, int baselen);
 int	ft_atoi_base(const char *str, int str_base);
+int	ft_strlen(char *s);
+
 
 int	main(int argc, char *argv[])
 {
 	(void)argc;
 	(void)argv;
-	
+
+	int	base_len;
+
 	if (argc == 3)
 	{
-		printf("%d\n", ft_atoi_base(argv[1], ft_atoi_base(argv[2], 10)));
+		base_len = ft_strlen(argv[2]);
+		printf("%d\n", ft_atoi_base(argv[1], base_len));
 		return (0);
 	}
 	return (0);
@@ -37,16 +42,14 @@ int	ft_atoi_base(const char *str, int str_base)
 
 	while (str[i] && is_valid(str[i], str_base))
 	{
-		result = result * str_base;
-
 		if (str[i] >= '0' && str[i] <= '9')
-			result = result + (str[i] - '0');
+			result = (result * str_base) + (str[i] - '0');
 	
 		else if (str[i] >= 'a' && str[i] <= 'f')
-			result = result + (str[i] - 'a' + 10);
+			result = (result * str_base) + (str[i] - 'a' + 10);
 	
 		else if (str[i] >= 'A' && str[i] <= 'F')
-			result = result + (str[i] - 'A' + 10);
+			result = (result * str_base) + (str[i] - 'A' + 10);
 		i++;
 	}
  	return (result * sign);
@@ -71,3 +74,15 @@ int	is_valid(int char_to_check, int str_base)
 	return (0);
 }
 
+int	ft_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (*s)
+	{
+		s++;
+		i++;
+	}
+	return (i);
+}

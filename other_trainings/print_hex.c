@@ -46,7 +46,7 @@ int	ft_atoi(char *str)
 void	ft_putnbr_base(int num, char *base)
 {
 	char	c;
-	int	i;
+	int		i;
 	long	lnb;
 
 	lnb = num;
