@@ -6,7 +6,7 @@
 /*   By: asharafe <asharafe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 18:51:22 by asharafe          #+#    #+#             */
-/*   Updated: 2025/07/14 21:13:59 by asharafe         ###   ########.fr       */
+/*   Updated: 2025/11/16 18:16:36 by asharafe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,15 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+/* get_next_line.c  */
 char	*get_next_line(int fd);
 char	*ft_extract_line(char **cache_update, char *cache, char *n_address);
-char	*ft_read_results(char **cache, char **buffer, ssize_t read_bytes);
-char	*ft_merge_read(char **cache, char **buffer, size_t read_bytes);
-void	*ft_full_free(char **cache, char **buffer);
+char	*ft_handle_read_results(char **cache, 
+			char **buffer, ssize_t read_bytes);
+int		ft_append_read(char **cache, char **buffer, size_t read_bytes);
+void	ft_full_free(char **cache, char **buffer);
+
+/* get-next_line_utils.c */
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
