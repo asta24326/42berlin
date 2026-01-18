@@ -1,0 +1,272 @@
+external functions
+
+__________________
+command line editing (GNU Readline Library)
+
+char *readline(const char *prompt)
+	- reads a line from terminal and returns it, using prompt as a prompt
+	- no prompt in case of empty string or prompt == NULL
+	- offers editing capabilities while user enters line
+
+void rl_clear_history(void)
+	- clears the history list by deleting all entries
+	- also frees private data Readline saves in history list
+
+int rl_on_new_line(void)
+	- tells the update function that we have moved onto a new (empty) line
+	- (usually after outputting a newline)
+
+void rl_replace_line(const char *text, int clear_undo)
+	- replaces the content of rl_line_buffer with text
+	- preserves the point and mark, if possible
+	- if clear_undo is non-zero, this clears the undo list associated with the current line
+
+void rl_redisplay(void)
+	- changes what is displayed on screen to reflect the current contents of rl_line_buffer
+
+void add_history(line)
+	- saves the line in a history list
+
+
+__________________
+file descriptor
+
+int access(const char *pathname, int mode)
+	- checks whether the calling process can access file pathname
+	- if pathname is a symbolic link, it is dereferenced
+	- mode sepcifies the accessibility checks (R_OK, W_OK, X_OK, F_OK)
+	- returns 0 upon success, -1 upon error (errno)
+
+
+__________________
+child process creation
+
+pid_t fork(void)
+	- creates a child process by duplicating the calling (parent) process
+	- the processes run in separate memory spaces
+	- child has its unique PID
+	- child"s set of signals is initially empty
+	- usw. (to be read in detail)
+	- returns child PID to parent and 0 in child upon success
+	- returns -1 to parent upon failure (no child process, errno)
+
+pid_t wait(int *wstatus)
+	- suspends execution of the calling thread until one of its childs terminates
+
+pid_t waitpid(pid_t pid, int *wstatus, int options)
+	- waits until a child specified by pid has changed state
+
+pid_t wait3(int *wstatus, int options, struct rusage *rusage)
+	- similar to wait, additionally returns resource usage information about child
+
+pid_t wait4(pid_t pid, int *wstatus, int options, struct rusage *rusage)
+	- similar to waitpid, additionally returns resource usage information about child
+
+
+__________________
+data exchange (from minitalk)
+
+signal(int signum, signhandler_t handler)
+	- like loop_hook in mlx
+	- comes into play when an event has occured (OS receives signal)
+	- signal function specifies which function to be called upon certain signal
+	- returns the previous value of signal handler, or SIG_ERR on error (errno)
+
+sigemptyset(sigset_t *set)
+	- initializes a signal set & empties it
+	- often used in combination with sigaddset()
+	- returns 0 on success and -1 on error (errno)
+
+sigaddset(sigset_t *set, int signum)
+	- allows to add a signal to a set of signals
+	- int signum = number of the signal to add
+	- returns 0 on success and -1 on error (errno)
+
+sigaction(int signum, const struct sigaction *act, struct sigaction *oldact)
+	- specifies the action to be taken by a process on receipt of a specific signal
+	- signum specifies the signal
+	- returns 0 on success and -1 on error (errno)
+
+kill(pid_t pid, int sig)
+	- system call sending a signal to a process
+	- pid of process you want to communicate to, sig specifies signal to be sent
+
+getpid(void)
+	- returns the process ID of current process
+
+pause(void)
+	- causes the calling process to sleep until a signal is received
+
+sleep(unsigned int seconds)
+	- causes the calling process to sleep for a specified number of seconds
+
+usleep(useconds_t usec)
+	- causes the calling process to sleep for a specified number of microseconds
+
+exit(int status)
+	- terminates the calling process immediatly
+	- status: 0 on success, !0 on error
+
+
+__________________
+command line handling
+
+char *getcwd(char *buf, size_t size)
+	- returns a null-terminated string containing an absolute pathname that is the current working directory of the calling process
+	- copies pathname in array pointed to by buffer which is length of size
+	- upon error, returns NULL and errno is set if size is exceeded
+	- buffer needs to be freed
+
+int chdir(const char *path)
+	- changes the current working directory of the calling process to the directory specified in path
+	- returns 0 upon success, -1 upon error (errno)
+
+int stat(const char *pathname, struct stat *statbuf)
+	- retrieves information about file
+	- returns 0 upon success, -1 upon error (errno)
+
+int lstat(const char *pathname, struct stat *statbuf)
+	- same as stat but returns info about link if it is symbolic
+	- returns 0 upon success, -1 upon error (errno)
+
+int	fstat(int fd, struct stat *statbuf)
+	- same as stat, but file is specified by fd
+	- returns 0 upon success, -1 upon error (errno)
+
+int unlink(const char *pathname)
+	- deletes a name form the filesyste
+	- the file remains in existence until the last fd referring to it is closed
+	- returns 0 upon success, -1 upon error (errno)
+
+int execve(const char *pathname, char *const argv[]. char *const envp[])
+	- executes the program referred to by pathname
+	- currently running program is replaced by new, with newly initialized stack, heap, data segments
+	- nothing returned upon succes, -1 returned upon error (errno)
+
+int dup(int oldfd)
+	- creates a copy of the fd, using the lowest numbered unused fd
+	- old and new fd share file offset and file status flags
+	- returns new fd upon success, -1 upon error (errno)
+
+int dup2(int oldfd, int newfd)
+	- same as dub but new fd is the one indicated
+	- returns new fd upon success, -1 upon error (errno)
+
+int pipe(int pipefd[2])
+	- creates a pipe, a unidirectional data channel that can be used for interprocess communication
+	- returns 0 upon success, -1 upon error (errno) and pipefd is left unchanged
+
+
+__________________
+directories
+
+DIR *opendir(const char *name)
+	- opens a directory
+	- returns a pointer to the directory stream (positioned at first entry in directory)
+	- upon error, NULL is returned (errno)
+
+struct dirent *readdir(DIR *dirp)
+	- returns a pointer to a dirent structure representing the next directory entry in the directory stream pointed to by dirp
+	- structure displayed in man entry
+	- returns NULL if end of directory stream is reached (errno is not changed)
+	- returns NULL and updates errno updon error
+	- set errno to zero before calling function to distinguish between end of stream and error
+
+int closedir(DIR *dirp)
+	- closes directory stream associated with dirp
+	- also closes underlying fd
+	- returns 0 upon success, -1 upon error (errno)
+
+
+__________________
+errors
+
+char *strerror(int errnum)
+	- returns a pointer to a string describing the error code passed in the argument errnum
+	- returns NULL if errnum is invalid
+
+void perror(const char *s)
+	- produces a message in standard error describing the last error encountered
+	- output: string s, colon, blank, errno message, newline
+
+
+__________________
+terminal management
+
+int isatty(int fd)
+	- tests whether fd is an open fd referring to a terminal
+	- in other words: determines if the fd specified is associated with a terminal
+	- returns 1 if fd is an open fd, otherwise returns 0 (errno)
+
+char *ttyname(int fd)
+	- retruns pointer to null-terminated pathname of the terminal device that is open on fd
+	- on error, returns NULL
+
+int ttyslot(void)
+	- finds the slot of the current user's terminal in some file
+	- slot = index of the controlling terminal of the calling process in file /etc/ttys (same as /etc/utmp)
+	- returns slot number upon success, 0 or -1 upon error (depending on OS)
+
+
+__________________
+input/output control
+
+int ioctl(int fd, unsigned long request, ...)
+	- manipulates the underlying device parameters of special files
+	- 1st parameter: fd must be open
+	- 2nd parameter: device-dependent request code
+	- 3rd argument: untyped pointer to memory, traditionally char *argp
+	- returns 0 upon success, also > 0 values possible, -1 upon error (errno)
+
+
+__________________
+environment
+
+char *getenv(const char *name)
+	- gets an environment variable passed as parameter within the environment list
+	- ususally used to adapt configuration and behavior to env variables
+	- returns a pointer to the corresponding value string
+	- returns NULL if no match is found
+
+
+__________________
+terminal attributes management
+
+int tcsetattr(int fd, int optional_actions, const struct termios *terminos_p)
+	- sets the parameters associated with the terminal from the termios structure (in man)
+	- possible optional_actions: TCSANOW, TCSADRAIN, TCSAFLUSH
+	- returns 0 upon success, -1 upon error (errno)
+
+int tcgetattr(int fd, struct termios *termios_p)
+	- gets the parameters associated with the object refereed by fd and stores them in the termios structure
+	- returns 0 upon success, -1 upon error (errno)
+
+
+__________________
+termcap database emultion (disply terminals in a terminal-independent manner)
+
+int tgetent(char *bp, const char *name)
+	- looks up the termcap entry for <name>
+	- the emultion ignores the buffer pointer <bp>
+
+int tgetflag(char id[2])
+	- gets the boolean entry for <id>
+
+int tgetnum(char id[2])
+	- gets the numeric entry for <id>
+
+char *tgetstr(char id[2], char **area)
+	- gets the string entry for <id>
+	- if <area> is not a null pointer and does not point to a null pointer, string is copied into buffer pointed to by *area
+	- the pointer is then advanced to the first byte after the copied string entry
+
+char **tgoto(char *cap, int col, int row)
+	- instantiates the parameters <col> and <row> into the capability cap and returns a pointer to the resulting string
+
+int tputs(const char *str, int affcnt, int (*putc)(int))
+	- applies padding information to the string <str> and outputs it
+	- the <str> needs to be a terminfo string variable of the return value from tgetstr or tgoto
+	- <affcnt> is the number of lines affected (1 if not applicable)
+	- <putc> is a putchar-like routine to which the characters are passed
+	- returns an error if string parameter is null
+	- does not detect I/O errors
