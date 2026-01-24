@@ -82,7 +82,3 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 | Project | Language | Description | Status |
 |---------|----------|-------------|--------|
 | **ft_transcendence** | Full Stack | Final project - full-stack web application | 📅 Planned |
-
-
-## ⚙️ Installation & Usage
-
