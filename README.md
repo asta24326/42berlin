@@ -48,8 +48,8 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
 | **ft_printf** | C | Recreation of printf function from stdio.h | ✅ Completed | 100/100 |
-| **Born2beroot** | Bash | Introduction to system administration and virtualization | ✅ Completed | 100/100 |
-| **[Get Next Line](https://github.com/asta24326/42berlin/tree/main/get_next_line)** | C | Function that reads a line from a file descriptor | ✅ Completed | 115/100 |
+| **born2beroot** | Bash | Introduction to system administration and virtualization | ✅ Completed | 100/100 |
+| **[get_next_line](https://github.com/asta24326/42berlin/tree/main/get_next_line)** | C | Function that reads a line from a file descriptor | ✅ Completed | 115/100 |
 
 ### Circle 2: Algorithms & Data Structures ✅
 | Project | Language | Description | Status | Grade |
@@ -67,16 +67,16 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 ### Circle 4: Networks & 3D Graphics 📅
 | Project | Language | Description | Status |
 |---------|----------|-------------|--------|
-| **NetPractice** | C | Network configuration exercise | 📅 Next |
-| **Cub3D** | C | Raycasting game (Wolfenstein 3D style) | 📅 Planned |
-| **CPP Modules (00-04)** | C++ | Introduction to C++ and OOP | 📅 Planned |
+| **net_practice** | C | Network configuration exercise | 📅 Next |
+| **cub_3D** | C | Raycasting game (Wolfenstein 3D style) | 📅 Planned |
+| **cpp_modules_00_04** | C++ | Introduction to C++ and OOP | 📅 Planned |
 
 ### Circle 5: Web & Advanced C++ 📅
 | Project | Language | Description | Status |
 |---------|----------|-------------|--------|
-| **CPP Modules (05-09)** | C++ | Advanced C++ concepts | 📅 Planned |
-| **Inception** | Docker | System administration with Docker | 📅 Planned |
-| **Webserv** | C++ | HTTP server implementation | 📅 Planned |
+| **cpp_modules_05_09** | C++ | Advanced C++ concepts | 📅 Planned |
+| **inception** | Docker | System administration with Docker | 📅 Planned |
+| **web_serv** | C++ | HTTP server implementation | 📅 Planned |
 
 ### Circle 6: Final Project 📅
 | Project | Language | Description | Status |
