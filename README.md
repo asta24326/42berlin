@@ -42,7 +42,7 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 ### Circle 0: Foundations & Basics ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[Libft]([https://github.com/asharafe/libft](https://github.com/asta24326/42berlin/tree/main/libft))** | C | Recreation of standard C library functions | ✅ Completed | 100/100 |
+| **[Libft](https://github.com/asharafe/libft](https://github.com/asta24326/42berlin/tree/main/libft)** | C | Recreation of standard C library functions | ✅ Completed | 100/100 |
 
 ### Circle 1: Unix & File I/O ✅
 | Project | Language | Description | Status | Grade |
