@@ -42,13 +42,13 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 ### Circle 0: Foundations & Basics ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[libft](https://github.com/asta24326/42berlin/tree/main/libft) | C | Recreation of standard C library functions | ✅ Completed | 100/100 |
+| **[libft](https://github.com/asta24326/42berlin/tree/main/libft)** | C | Recreation of standard C library functions | ✅ Completed | 100/100 |
 
 ### Circle 1: Unix & File I/O ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[ft_printf]** | C | Recreation of printf function from stdio.h | ✅ Completed | 100/100 |
-| **[Born2beroot]** | Bash | Introduction to system administration and virtualization | ✅ Completed | 100/100 |
+| **ft_printf** | C | Recreation of printf function from stdio.h | ✅ Completed | 100/100 |
+| **Born2beroot** | Bash | Introduction to system administration and virtualization | ✅ Completed | 100/100 |
 | **[Get Next Line](https://github.com/asta24326/42berlin/tree/main/get_next_line)** | C | Function that reads a line from a file descriptor | ✅ Completed | 115/100 |
 
 ### Circle 2: Algorithms & Data Structures ✅
@@ -62,7 +62,7 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
 | **[minishell](https://github.com/asta24326/42berlin/tree/main/minishell)** | C + Bash | Recreation of a simple shell in a group of 2 students (Bash-like) | ✅ Completed | 101/100 |
-| **[Philosophers]** | C | Multithreading and synchronization project | 🔄 **In Progress** | - |
+| **Philosophers** | C | Multithreading and synchronization project | 🔄 **In Progress** | - |
 
 ### Circle 4: Networks & 3D Graphics 📅
 | Project | Language | Description | Status |
