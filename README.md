@@ -42,27 +42,27 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 ### Circle 0: Foundations & Basics ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[Libft](https://github.com/asharafe/libft](https://github.com/asta24326/42berlin/tree/main/libft)** | C | Recreation of standard C library functions | ✅ Completed | 100/100 |
+| **[libft](https://github.com/asta24326/42berlin/tree/main/libft) | C | Recreation of standard C library functions | ✅ Completed | 100/100 |
 
 ### Circle 1: Unix & File I/O ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[ft_printf](https://github.com/asharafe/ft_printf)** | C | Recreation of printf function from stdio.h | ✅ Completed | 100/100 |
-| **[Born2beroot](https://github.com/asharafe/born2beroot)** | Bash | Introduction to system administration and virtualization | ✅ Completed | 100/100 |
-| **[Get Next Line](https://github.com/asharafe/get_next_line)** | C | Function that reads a line from a file descriptor | ✅ Completed | 115/100 |
+| **[ft_printf]** | C | Recreation of printf function from stdio.h | ✅ Completed | 100/100 |
+| **[Born2beroot]** | Bash | Introduction to system administration and virtualization | ✅ Completed | 100/100 |
+| **[Get Next Line](https://github.com/asta24326/42berlin/tree/main/get_next_line)** | C | Function that reads a line from a file descriptor | ✅ Completed | 115/100 |
 
 ### Circle 2: Algorithms & Data Structures ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[Pipex](https://github.com/asharafe/pipex)** | C | Recreation of shell pipe behavior | ✅ Completed | 100/100 |
-| **[Push_swap](https://github.com/asharafe/push_swap)** | C | Sorting algorithm optimization project | ✅ Completed | 100/100 |
-| **[so_long](https://github.com/asharafe/so_long)** | C | 2D game with sprite-based graphics | ✅ Completed | 100/100 |
+| **[pipex](https://github.com/asta24326/42berlin/tree/main/pipex)** | C | Recreation of shell pipe behavior | ✅ Completed | 100/100 |
+| **[push_swap](https://github.com/asta24326/42berlin/tree/main/push_swap)** | C | Sorting algorithm optimization project | ✅ Completed | 100/100 |
+| **[so_long](https://github.com/asta24326/42berlin/tree/main/so_long)** | C | 2D game with sprite-based graphics | ✅ Completed | 100/100 |
 
 ### Circle 3: Systems Programming 🎯
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[Minishell](https://github.com/asharafe/minishell)** | C | Recreation of a simple shell (Bash-like) | ✅ Completed | 101/100 |
-| **[Philosophers](https://github.com/asharafe/philosophers)** | C | Multithreading and synchronization project | 🔄 **In Progress** | - |
+| **[minishell](https://github.com/asta24326/42berlin/tree/main/minishell)** | C + Bash | Recreation of a simple shell in a group of 2 students (Bash-like) | ✅ Completed | 101/100 |
+| **[Philosophers]** | C | Multithreading and synchronization project | 🔄 **In Progress** | - |
 
 ### Circle 4: Networks & 3D Graphics 📅
 | Project | Language | Description | Status |
