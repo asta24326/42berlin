@@ -42,12 +42,12 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 ### Circle 0: Foundations & Basics ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[libft](https://github.com/asta24326/42berlin/tree/main/libft)** | C | Recreation of standard C library functions | ✅ Completed | 100/100 |
+| **[libft](https://github.com/asta24326/42berlin/tree/main/libft)** | C | Recreation of 45+ standard C library functions including memory manipulation, string operations, linked lists, and printf utilities. First project focusing on understanding memory allocation, pointers, and basic data structures. | ✅ Completed | 100/100 |
 
 ### Circle 1: Unix & File I/O ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **ft_printf** | C | Recreation of printf function from stdio.h | ✅ Completed | 100/100 |
+| **ft_printf** | C | Recreation of printf() function from stdio.h supporting conversions: c, s, p, d, i, u, x, X, %. Implements variable arguments, formatting flags, width, precision, and return value counting. Teaches variadic functions and formatted output. | ✅ Completed | 100/100 |
 | **born2beroot** | Bash | Introduction to system administration and virtualization | ✅ Completed | 100/100 |
 | **[get_next_line](https://github.com/asta24326/42berlin/tree/main/get_next_line)** | C | Function that reads a line from a file descriptor | ✅ Completed | 115/100 |
 
