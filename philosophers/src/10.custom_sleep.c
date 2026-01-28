@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 19:32:10 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2026/01/25 19:59:14 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2026/01/28 22:10:27 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,4 @@ void	ft_custom_usleep(long given_time, t_db *db)
 		}
 	}
 }
+

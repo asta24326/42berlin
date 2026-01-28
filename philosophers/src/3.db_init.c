@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:37:46 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2026/01/25 18:50:00 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2026/01/28 22:56:28 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	ft_philo_init(t_db *db);
 static void	ft_set_forks(t_db *db, t_ph *philo, t_fork *fork);
-
 
 /* 
 	psudo:
@@ -25,7 +24,6 @@ static void	ft_set_forks(t_db *db, t_ph *philo, t_fork *fork);
 	3) array for forks
 	4) array for philosophers
 */
-
 void	ft_db_init(t_db *db)
 {
 	int	i;
@@ -63,11 +61,10 @@ static void	ft_philo_init(t_db *db)
 		curr_philo->is_full = false;
 		// special function to assign forks
 		ft_set_forks(db, curr_philo, db->forks);
+		ft_mutex_handle(&curr_philo->philo_mutex, INIT);
 		curr_philo->db = db;
 		curr_philo++;				// moving to next pos in array of structs
 	}
-
-
 }
 
 static void	ft_set_forks(t_db *db, t_ph *philo, t_fork *fork)

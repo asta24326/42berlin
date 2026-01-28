@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 17:34:52 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2026/01/25 19:52:25 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2026/01/28 22:42:43 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	*ft_round_run(void *data)
 		ft_eating(philo);	// TODO
 
 		// 3) sleeping -> write_status & precise usleep
+		ft_write_status(SLEEPING, philo, DEBUG_MODE);
 		ft_custom_usleep(philo->db->time_sleep, philo->db);
 		
 		// 4) thinking
@@ -84,4 +85,11 @@ void	*ft_round_run(void *data)
 	}
 
 	return (NULL);
+}
+
+bool	ft_round_finished(t_db *db)
+{
+	if (db->round_stop == true)
+		return (true);
+	return(false);
 }
