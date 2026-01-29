@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 23:15:07 by asharafe          #+#    #+#             */
-/*   Updated: 2026/01/28 23:13:20 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2026/01/29 20:43:15 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,14 @@ typedef struct s_db
 	long		time_sleep;
 	long		meals_limit;
 	long		round_start;
-	bool		round_stop;		// if someone will die
-	bool		all_phs_ready;	// for sync of philos
-	t_mutex		host_mutex;		// round supervisor, to avoid races
-	t_mutex		status_mtx;	// to write status safely???
-	t_fork		*forks; 		// array for forks
-	t_ph		*philos;		// array for philosophers
+	long		phls_running_amnt;	// to count running philos
+	bool		round_stop;			// if someone will die
+	bool		all_phs_ready;		// for sync of philos
+	pthread_t	monitor_thread;		// searchong fro death
+	t_mutex		host_mutex;			// round supervisor, to avoid races
+	t_mutex		status_mtx;			// to write status safely???
+	t_fork		*forks; 			// array for forks
+	t_ph		*philos;			// array for philosophers
 }	t_db;
 
 
@@ -116,8 +118,7 @@ void 	ft_parse(t_db *database, char **av);
 
 //	2.utils.c TODO
 void	ft_error_exit(char *error_msg);
--> TBD void	ft_full_clean(t_db *db);
--> TBD void	ft_clean_forks(t_db *db, t_fork *forks);
+void	ft_clean(t_db *db);
 
 //	3.db_init.c
 void	ft_db_init(t_db *db);
@@ -132,7 +133,7 @@ void	ft_mutex_handle(t_mutex *mutex, t_mtx_opc opcode);
 void	ft_thread_handle(pthread_t *thread, void *(* func)(void *),
 				void *data, t_thred_opc opcode);
 
-//	6.round_init.c
+//	6.round.c
 void	ft_round_init(t_db *db);
 void	*ft_round_run(void *data);
 bool	ft_round_finished(t_db *db);
@@ -145,6 +146,8 @@ long	ft_get_long(t_mutex *mutex, long *curr_value);
 
 //	8.sync.c
 void	ft_wait_all_philos(t_db *db);
+bool	ft_all_philos_running(t_mutex *mutex, long *threads, long philo_amount);
+void	ft_increase_long(t_mutex *mutex, long *value);
 
 //	9.get_time.c
 long	ft_get_time(t_timecode time_type);
@@ -158,4 +161,5 @@ void	ft_write_status(t_status_opc status, t_ph *philo, bool debug);
 //		static void	ft_wr_st_debug(t_status_opc status, t_ph *philo, long time)
 
 // 12.philo_processes.c
-void	ft_eat(t_ph *philo);
+void	ft_eating(t_ph *philo);
+void	ft_thinking(t_ph *philo);

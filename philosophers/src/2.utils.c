@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 11:53:12 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2026/01/25 17:33:48 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2026/01/29 20:43:19 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,19 @@ void	ft_error_exit(char *error_msg)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_full_clean(t_db *db)
+void	ft_clean(t_db *db)
 {
-	while (db->forks)
-}
-
-void	ft_clean_forks(t_db *db, t_fork *forks)
-{
-	int	i;
+	t_ph	*curr_philo;
+	int		i;
 
 	i = -1;
-	while (++i < (db->philos_amount - 1))
+	while (++i < db->philos_amount)
 	{
-		if (forks[i]->fork)
+		curr_philo = db->philos + i;
+		ft_mutex_handle(&curr_philo->philo_mutex, DESTROY);
 	}
+	ft_mutex_handle(&db->status_mtx, DESTROY);
+	ft_mutex_handle(&db->host_mutex, DESTROY);
+	free(db->forks);
+	free(db->philos);
 }

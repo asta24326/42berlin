@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:37:46 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2026/01/28 22:56:28 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2026/01/29 20:34:02 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@ void	ft_db_init(t_db *db)
 
 	db->round_stop = false;
 	db->all_phs_ready = false;
+	db->phls_running_amnt = 0;
 	ft_mutex_handle(&db->host_mutex, INIT);
 	db->forks = malloc(sizeof(t_fork) * db->philos_amount);
-	db->philos = malloc(sizeof(t_ph) * db->philos_amount);
+	
 	if (!db->forks || !db->philos)
 		ft_error_exit("Malloc failed"); // TBD to handle cleaning after
-		
-	// intiialisaion of mutexes
+	db->philos = malloc(sizeof(t_ph) * db->philos_amount);
+	// intiialisaion of mutexes/forks
 	i = -1;
 	while (++i < db->philos_amount)
 	{

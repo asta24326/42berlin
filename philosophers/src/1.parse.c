@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 12:05:38 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2026/01/25 17:54:45 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2026/01/29 20:32:35 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void ft_parse(t_db *database, char **av)
 	database->philos_amount = ft_atol_philo(av[1]);
 	if (database->philos_amount <= 1)
 		ft_error_exit("Min amount of philos is 2");
-	database->time_die = (ft_atol_philo(av[2]) * 1000);// converting seconds to microseconds for usleep later
-	database->time_eat = (ft_ato_philol(av[3]) * 1000);
+	database->time_die = (ft_atol_philo(av[2]) * 1000);// converting MILLIseconds to MICROseconds for usleep later
+	database->time_eat = (ft_atol_philol(av[3]) * 1000);
 	database->time_sleep = (ft_atol_philo(av[4]) * 1000);
 	if (database->time_die < (60 * 1000)
 		|| database->time_eat < (60 * 1000)

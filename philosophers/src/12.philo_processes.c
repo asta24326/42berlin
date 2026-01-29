@@ -6,14 +6,14 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 22:43:30 by aidarsharaf       #+#    #+#             */
-/*   Updated: 2026/01/28 23:13:43 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2026/01/29 19:34:06 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
 /*
-	eat process:
+	eating process:
 
 	1.1) grab forks: first and second 
 	1.2) write status about taking forks
@@ -25,8 +25,7 @@
 		2.5) check if philo is full
 	3) release the forks
 */
-
-void	ft_eat(t_ph *philo)
+void	ft_eating(t_ph *philo)
 {
 	// 1.1) grab first fork
 	ft_mutex_handle(&philo->first_fork->fork, LOCK);
@@ -53,4 +52,13 @@ void	ft_eat(t_ph *philo)
 	// 3) unlocking forks back
 	ft_mutex_handle(&philo->first_fork->fork, UNLOCK);
 	ft_mutex_handle(&philo->second_fork->fork, UNLOCK);
+}
+
+/*
+	thinking process:
+	
+*/
+void	ft_thinking(t_ph *philo)
+{
+	ft_write_status(THINKING, philo, DEBUG_MODE);
 }

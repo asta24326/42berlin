@@ -6,7 +6,7 @@
 /*   By: aidarsharafeev <aidarsharafeev@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 23:14:27 by asharafe          #+#    #+#             */
-/*   Updated: 2026/01/25 17:34:39 by aidarsharaf      ###   ########.fr       */
+/*   Updated: 2026/01/29 20:57:33 by aidarsharaf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int ac, char **av)
 	
 	if (ac == 5 || ac == 6) // check for correct input
 	{
-		ft_parse_input(&database, av);	// 1) parsing errors
+		ft_parse(&database, av);	// 1) parsing errors
 		ft_db_init(&database);			// 2) Data allocation
 		ft_round_start(&database);		// 3) Round handling
 		ft_clean(&database);			// 4) clean function
