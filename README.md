@@ -62,14 +62,14 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
 | **[minishell](https://github.com/asta24326/Minishell_croissant)** | C + Bash | Recreation of bash shell in a group of 2 students. Implements command parsing, pipes, redirections (`>`, `>>`, `<`), environment variables, builtins (echo, cd, pwd, export, unset, env, exit), signals handling, and process execution. | ✅ Completed | 101/100 |
-| **[Philosophers](https://github.com/asta24326/Philosophers)** | C | Multithreading and synchronization project simulating the Dining Philosophers problem. Uses pthreads, mutexes, and timers to prevent deadlocks and starvation. Each philosopher is a thread sharing resources (forks) with timing constraints for eating, sleeping, and thinking. | 🔄 **In Progress** | - |
+| **[Philosophers](https://github.com/asta24326/Philosophers)** | C | Multithreading and synchronization project simulating the Dining Philosophers problem. Uses pthreads, mutexes, and timers to prevent deadlocks and starvation. Each philosopher is a thread sharing resources (forks) with timing constraints for eating, sleeping, and thinking. | ✅ Completed | 100/100 |
 
 ### Circle 4: Networks & 3D Graphics 🎯
 | Project | Language | Description | Status |
 |---------|----------|-------------|--------|
-| **[net_practice](https://github.com/asta24326/Net_practice)** | C | Network configuration exercise teaching IP addressing, subnetting, routing, and network masks. Interactive simulation of network troubleshooting and configuration without actual networking code. | 📅 Next |
-| **cub_3D** | C | Raycasting game engine similar to Wolfenstein 3D using MiniLibX. Renders 3D environments from 2D maps with textures, sprites, collision detection, and player movement. Introduces 3D mathematics and rendering techniques. | 📅 Planned |
-| **cpp_modules_00_04** | C++ | Introduction to C++ and Object-Oriented Programming covering classes, inheritance, polymorphism, templates, and STL containers. Five modules progressively teaching C++ fundamentals after C mastery. | 📅 Planned |
+| **[net_practice](https://github.com/asta24326/Net_practice)** | C | Network configuration exercise teaching IP addressing, subnetting, routing, and network masks. Interactive simulation of network troubleshooting and configuration without actual networking code. | ✅ Completed | 100/100 |
+| **cub_3D** | C | Raycasting game engine similar to Wolfenstein 3D using MiniLibX. Renders 3D environments from 2D maps with textures, sprites, collision detection, and player movement. Introduces 3D mathematics and rendering techniques. | 🔄 **In Progress** |
+| **cpp_modules_00_04** | C++ | Introduction to C++ and Object-Oriented Programming covering classes, inheritance, polymorphism, templates, and STL containers. Five modules progressively teaching C++ fundamentals after C mastery. | 📅 Next |
 
 ### Circle 5: Web & Advanced C++ 📅
 | Project | Language | Description | Status |
