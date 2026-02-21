@@ -1,7 +1,0 @@
-{
-	"files.associations": {
-		"limits.h": "c",
-		"bubble_sort.h": "c",
-		"unistd.h": "c"
-	}
-}

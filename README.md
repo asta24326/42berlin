@@ -42,32 +42,32 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 ### Circle 0: Foundations & Basics ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[libft](https://github.com/asta24326/42berlin/tree/main/libft)** | C | Recreation of 45+ standard C library functions including memory manipulation, string operations, linked lists, and printf utilities. First project focusing on understanding memory allocation, pointers, and basic data structures. | ✅ Completed | 100/100 |
+| **[libft](https://github.com/asta24326/Libft)** | C | Recreation of 45+ standard C library functions including memory manipulation, string operations, linked lists, and printf utilities. First project focusing on understanding memory allocation, pointers, and basic data structures. | ✅ Completed | 100/100 |
 
 ### Circle 1: Unix & File I/O ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **ft_printf** | C | Recreation of printf() function from stdio.h supporting conversions: c, s, p, d, i, u, x, X, %. Implements variable arguments, formatting flags, width, precision, and return value counting. Teaches variadic functions and formatted output. | ✅ Completed | 100/100 |
-| **born2beroot** | Bash+UNIX | Introduction to system administration using virtualization. Configures Debian/ Rocky Linux VM with LVM partitioning, SSH, UFW firewall, sudo policies, password policies, and monitoring scripts. Covers Linux fundamentals and server administration. | ✅ Completed | 100/100 |
-| **[get_next_line](https://github.com/asta24326/42berlin/tree/main/get_next_line)** | C | Function that reads a line from a file descriptor, handling multiple file descriptors simultaneously with static variables. Teaches file I/O, buffer management, and memory-efficient reading of arbitrary length lines. | ✅ Completed | 115/100 |
+| **[ft_printf](https://github.com/asta24326/ft_printf)** | C | Recreation of printf() function from stdio.h supporting conversions: c, s, p, d, i, u, x, X, %. Implements variable arguments, formatting flags, width, precision, and return value counting. Teaches variadic functions and formatted output. | ✅ Completed | 100/100 |
+| **[born2beroot](https://github.com/asta24326/Born2beroot)** | Bash+UNIX | Introduction to system administration using virtualization. Configures Debian/ Rocky Linux VM with LVM partitioning, SSH, UFW firewall, sudo policies, password policies, and monitoring scripts. Covers Linux fundamentals and server administration. | ✅ Completed | 100/100 |
+| **[get_next_line](https://github.com/asta24326/get_next_line)** | C | Function that reads a line from a file descriptor, handling multiple file descriptors simultaneously with static variables. Teaches file I/O, buffer management, and memory-efficient reading of arbitrary length lines. | ✅ Completed | 115/100 |
 
 ### Circle 2: Algorithms & Data Structures ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[pipex](https://github.com/asta24326/42berlin/tree/main/pipex)** | C + Bash | Recreation of shell pipe (`\|`) behavior using processes, pipes, and file descriptors. Simulates `cmd1 \| cmd2` with input/output redirection, handling multiple commands and error management. Focuses on process creation and IPC. | ✅ Completed | 100/100 |
-| **[push_swap](https://github.com/asta24326/42berlin/tree/main/push_swap)** | C | Sorting algorithm optimization project using two stacks with limited operations. Implements various sorting algorithms (radix, quick sort, etc.) to minimize operations. Tests algorithm efficiency and problem-solving skills. | ✅ Completed | 100/100 |
-| **[so_long](https://github.com/asta24326/42berlin/tree/main/so_long)** | C | 2D game using MiniLibX graphics library. Features sprite rendering, collision detection, player movement, collectibles counting, and map parsing from .ber files. Introduces game loops, graphics programming, and event handling. | ✅ Completed | 100/100 |
+| **[pipex](https://github.com/asta24326/Pipex)** | C + Bash | Recreation of shell pipe (`\|`) behavior using processes, pipes, and file descriptors. Simulates `cmd1 \| cmd2` with input/output redirection, handling multiple commands and error management. Focuses on process creation and IPC. | ✅ Completed | 100/100 |
+| **[push_swap](https://github.com/asta24326/Push_swap)** | C | Sorting algorithm optimization project using two stacks with limited operations. Implements various sorting algorithms (radix, quick sort, etc.) to minimize operations. Tests algorithm efficiency and problem-solving skills. | ✅ Completed | 100/100 |
+| **[so_long](https://github.com/asta24326/So_long)** | C | 2D game using MiniLibX graphics library. Features sprite rendering, collision detection, player movement, collectibles counting, and map parsing from .ber files. Introduces game loops, graphics programming, and event handling. | ✅ Completed | 100/100 |
 
-### Circle 3: Systems Programming 🎯
+### Circle 3: Systems Programming ✅
 | Project | Language | Description | Status | Grade |
 |---------|----------|-------------|--------|-------|
-| **[minishell](https://github.com/asta24326/42berlin/tree/main/minishell)** | C + Bash | Recreation of bash shell in a group of 2 students. Implements command parsing, pipes, redirections (`>`, `>>`, `<`), environment variables, builtins (echo, cd, pwd, export, unset, env, exit), signals handling, and process execution. | ✅ Completed | 101/100 |
-| **Philosophers** | C | Multithreading and synchronization project simulating the Dining Philosophers problem. Uses pthreads, mutexes, and timers to prevent deadlocks and starvation. Each philosopher is a thread sharing resources (forks) with timing constraints for eating, sleeping, and thinking. | 🔄 **In Progress** | - |
+| **[minishell](https://github.com/asta24326/Minishell_croissant)** | C + Bash | Recreation of bash shell in a group of 2 students. Implements command parsing, pipes, redirections (`>`, `>>`, `<`), environment variables, builtins (echo, cd, pwd, export, unset, env, exit), signals handling, and process execution. | ✅ Completed | 101/100 |
+| **[Philosophers](https://github.com/asta24326/Philosophers)** | C | Multithreading and synchronization project simulating the Dining Philosophers problem. Uses pthreads, mutexes, and timers to prevent deadlocks and starvation. Each philosopher is a thread sharing resources (forks) with timing constraints for eating, sleeping, and thinking. | 🔄 **In Progress** | - |
 
-### Circle 4: Networks & 3D Graphics 📅
+### Circle 4: Networks & 3D Graphics 🎯
 | Project | Language | Description | Status |
 |---------|----------|-------------|--------|
-| **net_practice** | C | Network configuration exercise teaching IP addressing, subnetting, routing, and network masks. Interactive simulation of network troubleshooting and configuration without actual networking code. | 📅 Next |
+| **[net_practice](https://github.com/asta24326/Net_practice)** | C | Network configuration exercise teaching IP addressing, subnetting, routing, and network masks. Interactive simulation of network troubleshooting and configuration without actual networking code. | 📅 Next |
 | **cub_3D** | C | Raycasting game engine similar to Wolfenstein 3D using MiniLibX. Renders 3D environments from 2D maps with textures, sprites, collision detection, and player movement. Introduces 3D mathematics and rendering techniques. | 📅 Planned |
 | **cpp_modules_00_04** | C++ | Introduction to C++ and Object-Oriented Programming covering classes, inheritance, polymorphism, templates, and STL containers. Five modules progressively teaching C++ fundamentals after C mastery. | 📅 Planned |
 
