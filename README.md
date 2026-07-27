@@ -68,8 +68,8 @@ The 42 Common Core curriculum is divided into "circles" (levels), each containin
 | Project | Language | Description | Status |
 |---------|----------|-------------|--------|
 | **[net_practice](https://github.com/asta24326/Net_practice)** | C | Network configuration exercise teaching IP addressing, subnetting, routing, and network masks. Interactive simulation of network troubleshooting and configuration without actual networking code. | ✅ Completed | 100/100 |
-| **cub_3D** | C | Raycasting game engine similar to Wolfenstein 3D using MiniLibX. Renders 3D environments from 2D maps with textures, sprites, collision detection, and player movement. Introduces 3D mathematics and rendering techniques. | 🔄 **In Progress** |
-| **cpp_modules_00_04** | C++ | Introduction to C++ and Object-Oriented Programming covering classes, inheritance, polymorphism, templates, and STL containers. Five modules progressively teaching C++ fundamentals after C mastery. | 📅 Next |
+| **[cub3d](https://github.com/asta24326/Cub3D)** | C | Raycasting game engine similar to Wolfenstein 3D using MiniLibX. Renders 3D environments from 2D maps with textures, sprites, collision detection, and player movement. Introduces 3D mathematics and rendering techniques. | ✅ Completed | 110/100 |
+| **cpp_modules_00_04** | C++ | Introduction to C++ and Object-Oriented Programming covering classes, inheritance, polymorphism, templates, and STL containers. Five modules progressively teaching C++ fundamentals after C mastery. | 🔄 **In Progress** |
 
 ### Circle 5: Web & Advanced C++ 📅
 | Project | Language | Description | Status |
